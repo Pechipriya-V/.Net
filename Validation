@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="Validation.Registration" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="validation1.Registration" %>
 
 <!DOCTYPE html>
 
@@ -7,61 +7,109 @@
     <title></title>
     <style type="text/css">
         .auto-style1 {
-            width: 377px;
+            height: 4px;
         }
         .auto-style2 {
-            width: 376px;
+            height: 4px;
+            width: 222px;
+        }
+        .auto-style3 {
+            width: 222px;
+        }
+        .auto-style4 {
+            width: 220px;
+        }
+        .auto-style5 {
+            height: 4px;
+            width: 441px;
+        }
+        .auto-style6 {
+            width: 441px;
+        }
+        .auto-style7 {
+            width: 444px;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Table ID="Table1" runat="server">
-            </asp:Table>
             <table style="width:100%;">
                 <tr>
-                    <td class="auto-style1">Registration Form</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style2">Registration form</td>
+                    <td class="auto-style5"></td>
+                    <td class="auto-style1"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">User Name</td>
+                    <td class="auto-style3">
+                        <asp:Label ID="Label2" runat="server" Text="User Name"></asp:Label>
+                    </td>
+                    <td class="auto-style6">
+                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    </td>
                     <td>
-                        <input id="Text1" type="text" /></td>
-                    <td>&nbsp;</td>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="Enter a valid username"></asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">Age</td>
+                    <td class="auto-style3">
+                        <asp:Label ID="Label3" runat="server" Text="Age"></asp:Label>
+                    </td>
+                    <td class="auto-style6">
+                        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                    </td>
                     <td>
-                        <input id="Text2" type="text" /></td>
-                    <td>&nbsp;</td>
+                        <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TextBox2" ErrorMessage="Enter a valid age" MaximumValue="30" MinimumValue="20"></asp:RangeValidator>
+                    </td>
                 </tr>
             </table>
             <table style="width:100%;">
                 <tr>
-                    <td class="auto-style2">Mail ID</td>
+                    <td class="auto-style4">
+                        <asp:Label ID="Label4" runat="server" Text="Email Id"></asp:Label>
+                    </td>
+                    <td class="auto-style7">
+                        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                    </td>
                     <td>
-                        <input id="Text3" type="text" /></td>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextBox3" ErrorMessage="Enter valid Emailid" ForeColor="#009900" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style4">
+                        <asp:Label ID="Label5" runat="server" Text="Password"></asp:Label>
+                    </td>
+                    <td class="auto-style7">
+                        <asp:TextBox ID="TextBox4" Type="Password" runat="server" OnTextChanged="TextBox4_TextChanged"></asp:TextBox>
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">Password</td>
+                    <td class="auto-style4">
+                        <asp:Label ID="Label6" runat="server" Text="Re-type Password"></asp:Label>
+                    </td>
+                    <td class="auto-style7">
+                        <asp:TextBox ID="TextBox5" Type="Password" runat="server"></asp:TextBox>
+                    </td>
                     <td>
-                        <input id="Text4" type="Password" /></td>
-                    <td>&nbsp;</td>
+                        <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="TextBox4" ControlToValidate="TextBox5" ErrorMessage="CompareValidator"></asp:CompareValidator>
+                    </td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">Re-Type Password</td>
+                    <td class="auto-style4">
+                        <asp:Label ID="Label1" runat="server" Text="Pincode"></asp:Label>
+                    </td>
+                    <td class="auto-style7">
+                        <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+                    </td>
                     <td>
-                        <input id="Text5" type="Password" /></td>
-                    <td>&nbsp;</td>
+                        <asp:RangeValidator ID="RangeValidator2" runat="server" ControlToValidate="TextBox6" ErrorMessage="Enter valid Pincode" MaximumValue="999999" MinimumValue="000000"></asp:RangeValidator>
+                    </td>
                 </tr>
             </table>
-            <asp:Button ID="Button1" runat="server" Text="Submit" />
         </div>
+        <asp:Button ID="Button1" runat="server" Text="Submit" PostBackUrl="~/WebForm1.aspx" />
     </form>
-    <p>
-        &nbsp;</p>
 </body>
 </html>
+
